@@ -22,7 +22,7 @@ export default function Login() {
         <Text
           style={{
             textAlign: "center",
-            marginTop: 55,
+            marginTop: 20,
             fontWeight: "600",
             color: Colors.fontColor,
             fontSize: 16
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   appImage: {
     width: 500,
     height: 800,
-    marginTop: 10,
+    marginTop: 0,
     alignSelf: "center",
     objectFit: "contain",
   },
@@ -49,5 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "bold",
     color: Colors.fontColor,
+    textAlign: "center",
+    padding:2
   },
 });
