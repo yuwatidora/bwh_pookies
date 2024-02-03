@@ -1,3 +1,5 @@
+
+
 {
   "expo": {
     "name": "my-app",
@@ -26,6 +28,7 @@
     },
     "extra": {
       "eas": {
+        "clerkPublishableKey": "pk_test_Y29oZXJlbnQtZ2xvd3dvcm0tODUuY2xlcmsuYWNjb3VudHMuZGV2JA",
         "projectId": "d4976fdb-a9c0-44ce-a321-1a68f4de1199"
       }
     }
