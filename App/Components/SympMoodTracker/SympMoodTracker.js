@@ -31,6 +31,7 @@ const SympMoodTracker = () => {
             >
                 <ArrowLeftIcon style={styles.backArrow} />
             </TouchableOpacity>
+            <ScrollView>
             <ScrollView style={styles.scrollView}>
                 <Text style={{
                     alignSelf: "center",
@@ -84,6 +85,7 @@ const SympMoodTracker = () => {
                         checkBoxStyles={{ backgroundColor: "transparent", borderColor: "transparent" }}
                     />
                 </View>
+            </ScrollView>
             </ScrollView>
             <TouchableOpacity style={styles.applyButton}>
                 <Text style={styles.applyButtonText}>Apply</Text>
