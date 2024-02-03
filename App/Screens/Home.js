@@ -1,15 +1,11 @@
+import { View, Text } from 'react-native'
+import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-import React from 'react';
-import { SafeAreaView, Text, StyleSheet, View, Button } from "react-native";
-import { ClerkProvider, SignedIn, SignedOut,useAuth } from "@clerk/clerk-expo";
-import { SignInWithOAuth } from "./../Components/SignInWithOAuth";
 export default function Home() {
-    const { isLoaded,signOut } = useAuth();
-    return (
-        <View>
-            <Button title="Signout"
-            onPress={()=>signOut()}></Button>
-            <Text>Home</Text>
-        </View>
-    )
+  return (
+    <SafeAreaView>
+      <Text>Home Screen</Text>
+    </SafeAreaView>
+  )
 }
