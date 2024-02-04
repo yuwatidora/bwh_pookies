@@ -5,14 +5,13 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 export default function forYouComponent({imageSource, color, title}) {
   return (
     <SafeAreaView style={styles.whole}>
-      
-        <View style={[styles.card, { backgroundColor: color }]}>
-          {/* <Text>Image</Text>  */}
+
+        <TouchableOpacity style={[styles.card, { backgroundColor: color }]}>
           <Image
           source={imageSource}
           style={styles.image} 
           />
-        </View>
+        </TouchableOpacity>
         <Text style={{color: "#777373", fontWeight:400}}>{title}</Text>
     
     </SafeAreaView>
