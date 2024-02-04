@@ -1,12 +1,14 @@
 import { View, Image, Text, StyleSheet, Dimensions, TouchableOpacity, SafeAreaView, ImageBackground } from "react-native";
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ProfileStatusCard from "../Components/profileStatusCard";
 import ProfileBox from "../Components/ProfileBox";
+import { SympContext } from "../Context/sympContext"
 
 
 
 export default function Profile() {
- 
+  const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
+
     return (
         <>
             <ImageBackground source={require("../../assets/images/profile.png")} style={styles.bgImage}>

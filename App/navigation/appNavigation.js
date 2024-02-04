@@ -11,6 +11,8 @@ import Profile from "../Screens/Profile";
 import useAuth from "../../hooks/useAuth";
 import { UserContext } from "../Context/userContext";
 import ProfileStatusCard from "../Components/profileStatusCard";
+import Appointment from "../Screens/Appointment";
+import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
 
 
 const Stack = createNativeStackNavigator();
@@ -29,9 +31,19 @@ export default function AppNavigation() {
             component={Home}
           />
           <Stack.Screen
-            name="Symptoms"
+            name="SympMoodTracker"
             options={{ headerShown: false }}
-            component={Symptoms}
+            component={SympMoodTracker}
+          />
+          <Stack.Screen
+            name="Appointment"
+            options={{ headerShown: false }}
+            component={Appointment}
+          />
+          <Stack.Screen
+            name="Profile"
+            options={{ headerShown: false }}
+            component={Profile}
           />
           <Stack.Screen
             name="Profile"
