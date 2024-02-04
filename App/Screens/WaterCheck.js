@@ -33,11 +33,12 @@ import {
           <CheckInCard question="What is the temperature today?" />
           <CheckInCard />
           <CheckInCard />
-          <TouchableOpacity
+
+        </ScrollView>
+        <TouchableOpacity
               style={styles.trackButton}
             onPress={() => navigation.navigate(WaterTracker)}
           ><Text style={styles.trackText}>Start Tracking!</Text></TouchableOpacity>
-        </ScrollView>
       </View>
     );
   }

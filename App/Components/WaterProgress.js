@@ -5,11 +5,12 @@ import {
   TouchableOpacity,
   StyleSheet,
   Animated,
+  Image,
   Dimensions,
 } from "react-native";
 import Home from "../Screens/Home";
-import Profile from "../Screens/Profile";
 import { useNavigation } from "@react-navigation/core";
+
 
 const WaterProgress = () => {
   const navigation = useNavigation();
@@ -41,25 +42,34 @@ const WaterProgress = () => {
   }, [progress]);
 
   return (
+    
     <View style={styles.container}>
-      <Animated.View
-        style={[styles.progressIndicator, { transform: [{ translateY }] }]}
-      >
-        <Text style={styles.progressText}>{progress}</Text>
-      </Animated.View>
-      <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <Text style={styles.buttonText}>Press me</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
-        <Text style={styles.buttonText}>Reset</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate(Home)}
-      >
-        <Text style={styles.buttonText}>Home</Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+   
+
+        <TouchableOpacity style={styles.pressMebutton} onPress={handlePress}>
+          {/* <Text style={styles.buttonText}>Press me</Text> */}
+          <Image source={require("../../assets/images/waterButton.png")}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
+          <Text style={styles.buttonText}>Reset</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.progressText}>You Drank {progress} cups today!</Text>
+
+      </View>
+
+      <View>
+
+        <Animated.Image
+            source={require("../../assets/images/waterTrack.png")}
+            style={[styles.image, { transform: [{ translateY }] }]}
+          />
+
+      </View>
     </View>
+    
   );
 };
 
@@ -69,34 +79,48 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  image: {
+    marginBottom: -2500,
+    marginRight: -254
+  },
+
   progressIndicator: {
-    backgroundColor: "#3498DB",
+    backgroundColor: '#3498DB',
     width: 50,
     height: 50,
     borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+
   progressText: {
-    color: "#fff",
+    color: "grey",
     fontSize: 18,
+    position: "absolute",
+    top:"65%"
+    // transform: [{ translateX: -9 }, { translateY: -9 }],
   },
-  button: {
-    marginTop: 20,
+  pressMebutton: {
+    marginTop: 80,
     padding: 10,
-    backgroundColor: "#2ECC71",
-    borderRadius: 5,
+
   },
   resetButton: {
-    marginTop: 10,
+    marginTop: 40,
     padding: 10,
     backgroundColor: "#FF6347", // Red color for reset button
     borderRadius: 5,
   },
-  buttonText: {
+  homeButton: {
     color: "#fff",
+    marginTop: -10,
+    padding: 10,
     fontSize: 16,
+    backgroundColor: "#FF6347"
+    
   },
 });
 
 export default WaterProgress;
+
