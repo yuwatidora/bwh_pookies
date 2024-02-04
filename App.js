@@ -8,11 +8,7 @@ import UserProvider from "./App/Context/userContext";
 import UserProvider from "./App/Context/userContext";
 
 export default function App() {
-  return (
-    <UserProvider>
-      <AppNavigation />
-    </UserProvider>
-  );
+  return <AppNavigation/>;
 }
 
 const styles = StyleSheet.create({
