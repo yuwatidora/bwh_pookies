@@ -1,6 +1,23 @@
-(Maf)
+# Title
+[Desc of the Proj]
 
-You'll need to install clerk and create an application on the site, replace the key in the env file with the key you generate there and you should be good!
-as for the other dependencies npm/x install should be enough
+## Inspiration 🎂
+[Inspo]
 
---
+## What it does 🥚
+[desc of features]
+
+## How we built it 🔨
+We used react Native to create a mobile 
+
+## Challenges we ran into 🛑
+Some challenges we ran into were figuring out how we can incoporate firebase into our app, along with figuring out how to route to different pages through react Native.
+
+## Accomplishments that we're proud of 🚀
+We are really happy to have implmented so many of our designs into code. The designs are so so fun and colorful and we are really proud that we finish all of it in such a short amount of time.
+
+## What we learned 💭
+We definitely feel more comfortable using GitHub now! We also really got good at styling our frontend app because of the amount of different feature the applciation had. Along with understanding how react native apps are routed .
+
+## What's next for [title]🤔
+One thing we wanted to implement was to include a community forum where postpartum mothers are able to chat about their experiences and also share advice and encourage each other. We believe that especially for mothers who are in the postpartum stage, it makes it difficult for them to go out and socialize so we hope to expand our platform so that they have a safe space to share their experience and recover well! We also hoped to incorporate an AI Buddy fro those who may feel uncomfortable getting advice from other individual in case of being judged. In that case, we hope to build a JUDGEMENT FREE AI Buddy that will give you all the advice and support you need from it!

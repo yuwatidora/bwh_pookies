@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   Button,
   StyleSheet
+  StyleSheet
 } from "react-native";
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -27,12 +28,16 @@ export default function Appointment({ navigation }) {
 
   return (
     <View style={styles.container}>
+    <View style={styles.container}>
       <TouchableOpacity
         onPress={() => navigation.goBack()}
+        style={styles.backArrow}
         style={styles.backArrow}
       >
         <ArrowLeftIcon size="20" color="black" />
       </TouchableOpacity>
+      <View>
+        <Text style={styles.heading}>
       <View>
         <Text style={styles.heading}>
           Start Booking!

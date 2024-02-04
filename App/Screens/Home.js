@@ -16,6 +16,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { UserContext } from "../Context/userContext";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
+import Colors from "../Shared/Colors";
 import WaterTracker from "./WaterTracker";
 import WaterCheck from "./WaterCheck";
 import Appointment from "./Appointment";
@@ -77,6 +78,7 @@ export default function Home() {
             </View>
           </View>
         </Modal>
+
         <Text
           style={{
             alignItems: "flex-start",
@@ -103,6 +105,7 @@ export default function Home() {
           />
         </View>
         <View style={styles.center_wrapper}>
+
           <View style={styles.foryou_container}>
             <TouchableOpacity
               onPress={() => navigation.navigate(SympMoodTracker)}
@@ -113,7 +116,7 @@ export default function Home() {
                 title="Postpartum Wellness"
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate(WaterCheck)}>
+            <TouchableOpacity onPress={() => navigation.navigate(WaterTracker)}>
               <ForYouComponent
                 imageSource={require("../../assets/images/water.png")}
                 color="#E8F7FF"
@@ -213,13 +216,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "pink",
+    backgroundColor: Colors.pink,
   },
-  modalCOntent: {
-    backgroundColor: "black",
+  modalContent: {
+    width: "50%",
     padding: 20,
     borderRadius: 10,
     elevation: 5,
+    marginRight:30,
+    alignContent:"center"
   },
   modalText: {
     width: "100%",
