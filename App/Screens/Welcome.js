@@ -9,8 +9,9 @@ import { ScrollView } from "react-native";
 
 export default function Login({ navigation }) {
   return (
+    <ScrollView>
     <View className="flex-1 flex justify-around my-4">
-      <ScrollView>
+      
         <Image source={motherbaby} style={styles.appImage} />
         <View
           style={{
@@ -22,6 +23,7 @@ export default function Login({ navigation }) {
             borderTopRightRadius: 20,
           }}
         >
+        
           <Text style={styles.heading}>The Postpartum Care</Text>
           <Text style={styles.heading}>You Need & Deserve.</Text>
           <Text
@@ -74,8 +76,8 @@ export default function Login({ navigation }) {
             </View>
           </View>
         </View>
-      </ScrollView>
     </View>
+    </ScrollView>
   );
 }
 
