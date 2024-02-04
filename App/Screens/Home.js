@@ -48,7 +48,6 @@ export default function Home() {
         </View>
 
         <Modal animationType="slide" transparent={true} visible={isVisible}>
-        <Modal animationType="slide" transparent={true} visible={isVisible}>
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
               <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
@@ -132,7 +131,6 @@ export default function Home() {
     </SafeAreaView>
   );
   );
-  );
 }
 
 const styles = StyleSheet.create({
@@ -166,6 +164,7 @@ const styles = StyleSheet.create({
     },
 
   },
+  foryou_container: {
   foryou_container: {
     width: "88%",
     flexDirection: "row",
