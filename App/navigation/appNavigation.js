@@ -5,12 +5,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../Screens/Home";
 import Welcome from "../Screens/Welcome";
 import Login from "../Screens/Login";
-import SignUp from "../Screens/signUp";
+import SignUp from "../Screens/SignUp";
+import Symptoms from "../Screens/Symptoms";
+import Profile from "../Screens/Profile";
 import useAuth from "../../hooks/useAuth";
 import { UserContext } from "../Context/userContext";
-import Appointment from "../Screens/Appointment";
-import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
-import Profile from "../Screens/Profile";
+import ProfileStatusCard from "../Components/profileStatusCard";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -27,31 +28,20 @@ export default function AppNavigation() {
             options={{ headerShown: false }}
             component={Home}
           />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
-  const { user } = useContext(UserContext);
-  useAuth();
-  
-  if (user) {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
-            name="SympMoodTracker"
+            name="Symptoms"
             options={{ headerShown: false }}
-            component={SympMoodTracker}
-          />
-          <Stack.Screen
-            name="Appointment"
-            options={{ headerShown: false }}
-            component={Appointment}
+            component={Symptoms}
           />
           <Stack.Screen
             name="Profile"
             options={{ headerShown: false }}
             component={Profile}
+          />
+          <Stack.Screen
+            name="ProfileStatus"
+            options={{ headerShown: false }}
+            component={ProfileStatusCard}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -21,8 +21,12 @@ const SympMoodTracker = ({navigation}) => {
         setMoodStatus(moods);
         setSymptomsStatus(symptoms);
     }, []);
+    
+    const handleApply = () => {
+        navigation.navigate('Profile', { activeMood, activeSymptoms });
+      };
 
-
+    
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity
