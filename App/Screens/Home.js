@@ -74,9 +74,6 @@ export default function Home() {
             </View>
           </View>
         </Modal>
-        <TouchableOpacity onPress={handleLogout}>
-                <Text style={styles.LogOutText}>Log Out</Text>
-    </TouchableOpacity>
       <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
 
       <View style={styles.center_wrapper}>
