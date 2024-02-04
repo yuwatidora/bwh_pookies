@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Row , Modal} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Row , Modal, Pressable} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ForYouComponent from '../Components/forYouComponent'
 import { useNavigation } from "@react-navigation/native";
@@ -18,6 +18,16 @@ export default function Home() {
 
   };
 
+  const handleProfile = () => {
+    navigation.navigate("Profile");
+    toggleModal();
+    console.log("profiel!")
+  }
+
+  const handleNavigation = (screenName) => {
+    console.log("navigatingg")
+    navigation.navigate(screenName);
+  };
   const toggleModal = () => {
     setVisible(!isVisible);
   }
@@ -39,8 +49,8 @@ export default function Home() {
         >
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
-            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Text style={styles.modalText}>Profile</Text>
+            <TouchableOpacity onPress={handleProfile}>
+                <Text style={styles.modalText} >Profile</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={handleLogout}>
                 <Text style={styles.modalText}>Log Out</Text>
@@ -54,6 +64,8 @@ export default function Home() {
         <TouchableOpacity onPress={handleLogout}>
                 <Text style={styles.LogOutText}>Log Out</Text>
     </TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Symptoms')}>
+      <Text>Symp</Text></TouchableOpacity>
       <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
       <View style={styles.upcoming}>
         <View style = {styles.calendarView}>
@@ -63,7 +75,7 @@ export default function Home() {
       <Text style={{fontSize: 28, paddingLeft: 30, color: "#777373", fontWeight:600}}>For you</Text>
       <View style={styles.center_wrapper}>
         <View style={styles.foryou_container}>
-          <ForYouComponent imageSource={require("../../assets/images/wellness.png")} color="#E0FFDD" title="Postpartum Wellness"/>
+          <ForYouComponent onPress={() => handleNavigation("Symptoms")} imageSource={require("../../assets/images/wellness.png")} color="#E0FFDD" title="Postpartum Wellness"/>
           <ForYouComponent imageSource={require("../../assets/images/water.png")} color="#E8F7FF" title="Water Tracker"/>
           <ForYouComponent imageSource={require("../../assets/images/calendar-icon.png")}color="#FFDDDD" title="Schedule Appointment"/>
           <ForYouComponent imageSource={require("../../assets/images/magglass.png")}color="#FFF3C8" title="Find a Gynecologist"/>

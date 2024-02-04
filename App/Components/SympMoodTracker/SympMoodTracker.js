@@ -8,6 +8,7 @@ import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 
 
+
 const SympMoodTracker = () => {
     const navigation = useNavigation();
     const [activeMood, setSelectedMood] = useState([]);
@@ -16,14 +17,18 @@ const SympMoodTracker = () => {
     const [symptom, setSymptomsStatus] = useState([]);
 
     useEffect(() => {
-        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name, icon: item.icon }));
-        const symptoms = moodsAndSymptoms[0].symptoms.map(item => ({ key: item.id, value: item.name, icon: item.icon }));
+        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name}));
+        const symptoms = moodsAndSymptoms[0].symptoms.map(item => ({ key: item.id, value: item.name}));
 
         setMoodStatus(moods);
         setSymptomsStatus(symptoms);
     }, []);
+    
+    const handleApply = () => {
+        navigation.navigate('Profile', { activeMood, activeSymptoms });
+      };
 
-
+    
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity
@@ -87,7 +92,7 @@ const SympMoodTracker = () => {
                     </View>
                 </ScrollView>
             </ScrollView>
-            <TouchableOpacity style={styles.applyButton}>
+            <TouchableOpacity onPress={handleApply} style={styles.applyButton}>
                 <Text style={styles.applyButtonText}>Apply</Text>
             </TouchableOpacity>
         </SafeAreaView>

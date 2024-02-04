@@ -7,8 +7,11 @@ import Welcome from "../Screens/Welcome";
 import Login from "../Screens/Login";
 import SignUp from "../Screens/SignUp";
 import Symptoms from "../Screens/Symptoms";
+import Profile from "../Screens/Profile";
 import useAuth from "../../hooks/useAuth";
 import { UserContext } from "../Context/userContext";
+import ProfileStatusCard from "../Components/profileStatusCard";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +32,16 @@ export default function AppNavigation() {
             name="Symptoms"
             options={{ headerShown: false }}
             component={Symptoms}
+          />
+          <Stack.Screen
+            name="Profile"
+            options={{ headerShown: false }}
+            component={Profile}
+          />
+          <Stack.Screen
+            name="ProfileStatus"
+            options={{ headerShown: false }}
+            component={ProfileStatusCard}
           />
         </Stack.Navigator>
       </NavigationContainer>
