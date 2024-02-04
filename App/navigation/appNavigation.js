@@ -43,6 +43,11 @@ export default function AppNavigation() {
             options={{ headerShown: false }}
             component={Profile}
           />
+          <Stack.Screen
+            name="ProfileStatus"
+            options={{ headerShown: false }}
+            component={ProfileStatusCard}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
