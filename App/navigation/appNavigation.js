@@ -6,14 +6,14 @@ import Home from "../Screens/Home";
 import Welcome from "../Screens/Welcome";
 import Login from "../Screens/Login";
 import SignUp from "../Screens/SignUp";
-import Symptoms from "../Screens/Symptoms";
 import Profile from "../Screens/Profile";
 import useAuth from "../../hooks/useAuth";
 import { UserContext } from "../Context/userContext";
 import ProfileStatusCard from "../Components/profileStatusCard";
 import Appointment from "../Screens/Appointment";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
-
+import WaterTracker from "../Screens/WaterTracker";
+import WaterCheck from "../Screens/WaterCheck";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,14 +46,27 @@ export default function AppNavigation() {
             component={Profile}
           />
           <Stack.Screen
-            name="Profile"
-            options={{ headerShown: false }}
-            component={Profile}
-          />
-          <Stack.Screen
             name="ProfileStatus"
             options={{ headerShown: false }}
             component={ProfileStatusCard}
+          />
+
+          <Stack.Screen
+            name="WaterCheck"
+            options={{ headerShown: false }}
+            component={WaterCheck}
+          />
+
+          <Stack.Screen
+            name="WaterTracker"
+            options={{ headerShown: false }}
+            component={WaterTracker}
+          />
+
+          <Stack.Screen
+            name="Homescreen"
+            options={{ headerShown: false }}
+            component={Home}
           />
         </Stack.Navigator>
       </NavigationContainer>
