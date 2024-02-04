@@ -1,4 +1,5 @@
 import { React, useState, useEffect, axios, useContext } from "react";
+import { React, useState, useEffect, axios, useContext } from "react";
 import * as WebBrowser from "expo-web-browser";
 import { Button, Dimensions, Text, TouchableOpacity, StatusBar, View, ScrollView, SafeAreaView, FlatList, StyleSheet } from "react-native";
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
@@ -50,6 +51,7 @@ const SympMoodTracker = ({navigation}) => {
                             option={mood}
                             search={false}
                             setSelected={(item) => setSelectedMood(item)}
+                            try= {() => console.log(item)}
                             try= {() => console.log(item)}
                             data={mood}
                             label="Mood"
