@@ -13,7 +13,7 @@ export default function forYouComponent({imageSource, color, title}) {
           style={styles.image} 
           />
         </View>
-        <Text style={{color: "#777373", fontWeight:600}}>{title}</Text>
+        <Text style={{color: "#777373", fontWeight:400}}>{title}</Text>
     
     </SafeAreaView>
   )
