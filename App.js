@@ -4,12 +4,15 @@ import Login from "./App/Screens/Welcome";
 import Home from "./App/Screens/Home";
 import AppNavigation from "./App/navigation/appNavigation";
 import UserProvider from "./App/Context/userContext";
+import SympProvider from "./App/Context/sympContext";
 
 export default function App() {
   return (
-    <UserProvider>
-      <AppNavigation />
-    </UserProvider>
+    <SympProvider>
+      <UserProvider>
+        <AppNavigation />
+      </UserProvider>
+    </SympProvider>
   );
 }
 
