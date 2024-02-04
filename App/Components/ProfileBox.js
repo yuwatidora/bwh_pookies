@@ -1,5 +1,5 @@
 import { View, Image, Text, StyleSheet, Dimensions, TouchableOpacity, SafeAreaView, ImageBackground } from "react-native";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../Context/userContext";
 
 
@@ -12,7 +12,6 @@ export default function ProfileBox() {
                 <Image source={require("../../assets/images/default.png")} style={styles.image}/>
                 <Text style={styles.userName}>{name}</Text>
             </View>
-
         </View>
     )
 }
