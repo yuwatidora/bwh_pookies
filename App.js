@@ -7,7 +7,7 @@ import Home from "./App/Screens/Home";
 import AppNavigation from "./App/navigation/appNavigation";
 
 export default function App() {
-  return <AppNavigation />;
+  return <AppNavigation/>;
 }
 
 const styles = StyleSheet.create({
