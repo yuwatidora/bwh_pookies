@@ -85,9 +85,19 @@ export default function AppNavigation() {
             component={Home}
           />
           <Stack.Screen
-            name="Symptoms"
+            name="SympMoodTracker"
             options={{ headerShown: false }}
-            component={Symptoms}
+            component={SympMoodTracker}
+          />
+          <Stack.Screen
+            name="Appointment"
+            options={{ headerShown: false }}
+            component={Appointment}
+          />
+          <Stack.Screen
+            name="Profile"
+            options={{ headerShown: false }}
+            component={Profile}
           />
           <Stack.Screen
             name="ProfileStatus"
@@ -134,10 +144,8 @@ export default function AppNavigation() {
           options={{ headerShown: false }}
           component={SignUp}
         />
-
       </Stack.Navigator>
     
     </NavigationContainer>
   );
-
 }
