@@ -47,6 +47,7 @@ export default function Home() {
         </View>
 
         <Modal animationType="slide" transparent={true} visible={isVisible}>
+        <Modal animationType="slide" transparent={true} visible={isVisible}>
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
               <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
@@ -129,6 +130,7 @@ export default function Home() {
     </SafeAreaView>
   );
   );
+  );
 }
 
 const styles = StyleSheet.create({
@@ -149,6 +151,18 @@ const styles = StyleSheet.create({
     
     marginTop: 10,
     alignItems: "center",
+  },
+  image_card:{
+    width: "98%",
+    height: 150,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOpacity:10,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+
   },
   foryou_container: {
     width: "88%",
