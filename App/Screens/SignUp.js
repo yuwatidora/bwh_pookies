@@ -6,14 +6,17 @@ import {
   Dimensions,
   TextInput,
 } from "react-native";
-import React, { useState } from "react";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
+import React, { useContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase";
+import { UserContext } from "../Context/userContext";
 
 export default function SignUp() {
+  const { name, setName } = useContext(UserContext);
   const navigation = useNavigation();
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
@@ -74,7 +77,8 @@ export default function SignUp() {
               fontSize: 16,
             }}
             className="p-4 bg-gray-100 text-gray-700 rounded-2xl mb-3"
-            value="john snow"
+            value={name}
+            onChangeText={(value) => setName(value)}
             placeholder="Enter Name"
           />
           <Text

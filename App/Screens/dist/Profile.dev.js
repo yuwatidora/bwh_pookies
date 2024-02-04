@@ -13,6 +13,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _sympContext = require("../Context/sympContext");
 
+var _userContext = require("../Context/userContext");
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -23,6 +25,9 @@ function Profile() {
       setSelectedMood = _useContext.setSelectedMood,
       activeSymptoms = _useContext.activeSymptoms,
       setSelectedSymptoms = _useContext.setSelectedSymptoms;
+
+  var _useContext2 = (0, _react.useContext)(_userContext.UserContext),
+      name = _useContext2.name;
 
   return console.log(activeMood, activeSymptoms);
 }

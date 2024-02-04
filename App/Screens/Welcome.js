@@ -75,10 +75,11 @@ export default function Login({ navigation }) {
                   color: "orange"
                 }}> Sign Up</Text>
               </TouchableOpacity>
+              
+              </View>
             </View>
           </View>
-        </View>
-    </View>
+          </View>
     </ScrollView>
   );
 }
