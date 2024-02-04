@@ -14,10 +14,11 @@ export default function Login({ navigation }) {
         <Image source={motherbaby} style={styles.appImage} />
         <View
           style={{
+            height: 500,
             backgroundColor: Colors.white,
-            padding: 85,
+            padding: 50,
             alignItems: "center",
-            marginTop: -300,
+            marginTop: -320,
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
           }}
@@ -40,7 +41,7 @@ export default function Login({ navigation }) {
               onPress={() => navigation.navigate('Login')}
               className="py-3 bg-yellow-400 mx-7 rounded-xl"
               style={{
-                padding: 25,
+                padding: 20,
                 backgroundColor: Colors.pink,
                 borderRadius: 120,
                 alignItems: "center",
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     alignSelf: "center",
     objectFit: "contain",
+
   },
 
   heading: {
