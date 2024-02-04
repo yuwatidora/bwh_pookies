@@ -3,12 +3,13 @@ import * as WebBrowser from "expo-web-browser";
 import { Button, Dimensions, Text, TouchableOpacity, StatusBar, View, ScrollView, SafeAreaView, FlatList, StyleSheet } from "react-native";
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
 import Colors from "../../Shared/Colors";
-import { MultiSelect } from "react-multi-select-component";
 import moodsAndSymptoms from '../../../assets/data/moodSympData.json';
-import {ArrowLeftIcon} from 'react-native-heroicons/solid';
+import { ArrowLeftIcon } from 'react-native-heroicons/solid';
+import { useNavigation } from '@react-navigation/native';
 
 
 const SympMoodTracker = () => {
+    const navigation = useNavigation();
     const [activeMood, setSelectedMood] = useState([]);
     const [activeSymptoms, setSelectedSymptoms] = useState([]);
     const [mood, setMoodStatus] = useState([]);
@@ -25,67 +26,66 @@ const SympMoodTracker = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity 
-                onPress={()=> navigation.goBack()}
-                className="bg-yellow-400 heroicon-sw-2"
+            <TouchableOpacity
+                onPress={() => navigation.goBack()}
             >
                 <ArrowLeftIcon style={styles.backArrow} />
             </TouchableOpacity>
             <ScrollView>
-            <ScrollView style={styles.scrollView}>
-                <Text style={{
-                    alignSelf: "center",
-                    fontSize: 23,
-                    color: "#777373",
-                    fontWeight: 700,
-                    marginBottom: 5
-                }}>How are you feeling today?</Text>
-                <View style={styles.boxContainer}>
-                    <MultipleSelectList
-                        dropdownShown={true}
-                        option={mood}
-                        search={false}
-                        setSelected={(item) => setSelectedMood(item)}
-                        data={mood}
-                        label="Mood"
-                        save="value"
-                        onSelect={() => console.log(activeMood)}
-                        placeholder="How are you today?"
-                        labelStyles={{ fontWeight: "500", fontSize: "25", background: "black", color: "#777373" }}
-                        badgeStyles={{ backgroundColor: "#FFC9AA" }}
-                        badgeTextStyles={{ color: "black", fontSize: "15" }}
-                        scrollViewHeight={100}
-                        checkBoxStyles={{ backgroundColor: "transparent", borderColor: "transparent" }}
-                    />
-                </View>
-            </ScrollView>
-            <ScrollView style={styles.scrollView}>
-                <Text style={{
-                    alignSelf: "center",
-                    fontSize: 23,
-                    color: "#777373",
-                    fontWeight: 700,
-                    marginBottom: 5
-                }}>Any Symptoms?</Text>
-                <View style={[styles.symptomBox]}>
-                    <MultipleSelectList
-                        dropdownShown={true}
-                        option={symptom}
-                        search={false}
-                        setSelected={(item) => setSelectedSymptoms(item)}
-                        data={symptom}
-                        label="Symptoms"
-                        onSelect={() => console.log(activeSymptoms)}
-                        save="value"
-                        placeholder="Any Symptoms"
-                        labelStyles={{ fontWeight: "500", fontSize: "25", background: "black", color: "777373" }}
-                        badgeStyles={{ backgroundColor: "#FFC1C1" }}
-                        badgeTextStyles={{ color: "black", fontSize: "15" }}
-                        scrollViewHeight={100}
-                        checkBoxStyles={{ backgroundColor: "transparent", borderColor: "transparent" }}
-                    />
-                </View>
-            </ScrollView>
+                <ScrollView style={styles.scrollView}>
+                    <Text style={{
+                        alignSelf: "center",
+                        fontSize: 23,
+                        color: "#777373",
+                        fontWeight: 700,
+                        marginBottom: 5
+                    }}>How are you feeling today?</Text>
+                    <View style={styles.boxContainer}>
+                        <MultipleSelectList
+                            dropdownShown={true}
+                            option={mood}
+                            search={false}
+                            setSelected={(item) => setSelectedMood(item)}
+                            data={mood}
+                            label="Mood"
+                            save="value"
+                            onSelect={() => console.log(activeMood)}
+                            placeholder="How are you today?"
+                            labelStyles={{ fontWeight: "500", fontSize: "25", background: "black", color: "#777373" }}
+                            badgeStyles={{ backgroundColor: "#FFC9AA" }}
+                            badgeTextStyles={{ color: "black", fontSize: "15" }}
+                            scrollViewHeight={100}
+                            checkBoxStyles={{ backgroundColor: "transparent", borderColor: "transparent" }}
+                        />
+                    </View>
+                </ScrollView>
+                <ScrollView style={styles.scrollView}>
+                    <Text style={{
+                        alignSelf: "center",
+                        fontSize: 23,
+                        color: "#777373",
+                        fontWeight: 700,
+                        marginBottom: 5
+                    }}>Any Symptoms?</Text>
+                    <View style={[styles.symptomBox]}>
+                        <MultipleSelectList
+                            dropdownShown={true}
+                            option={symptom}
+                            search={false}
+                            setSelected={(item) => setSelectedSymptoms(item)}
+                            data={symptom}
+                            label="Symptoms"
+                            onSelect={() => console.log(activeSymptoms)}
+                            save="value"
+                            placeholder="Any Symptoms"
+                            labelStyles={{ fontWeight: "500", fontSize: "25", background: "black", color: "777373" }}
+                            badgeStyles={{ backgroundColor: "#FFC1C1" }}
+                            badgeTextStyles={{ color: "black", fontSize: "15" }}
+                            scrollViewHeight={100}
+                            checkBoxStyles={{ backgroundColor: "transparent", borderColor: "transparent" }}
+                        />
+                    </View>
+                </ScrollView>
             </ScrollView>
             <TouchableOpacity style={styles.applyButton}>
                 <Text style={styles.applyButtonText}>Apply</Text>
@@ -151,9 +151,9 @@ const styles = StyleSheet.create({
         letterSpacing: 2,
     },
     backArrow: {
-        size:"20",
-        color:"black",
-        marginHorizontal:30,
+        size: "20",
+        color: "black",
+        marginHorizontal: 30,
         marginTop: 10
     },
 })
