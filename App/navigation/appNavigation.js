@@ -90,11 +90,6 @@ export default function AppNavigation() {
             component={Symptoms}
           />
           <Stack.Screen
-            name="Profile"
-            options={{ headerShown: false }}
-            component={Profile}
-          />
-          <Stack.Screen
             name="ProfileStatus"
             options={{ headerShown: false }}
             component={ProfileStatusCard}
