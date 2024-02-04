@@ -7,7 +7,6 @@ import {
   ScrollView,
   Modal,
   Dimensions,
-  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ForYouComponent from "../Components/forYouComponent";
@@ -21,7 +20,6 @@ import WaterTracker from "./WaterTracker";
 import WaterCheck from "./WaterCheck";
 
 export default function Home() {
-  const { name } = useContext(UserContext);
   const { name } = useContext(UserContext);
   const [isVisible, setVisible] = useState(false);
   const navigation = useNavigation();
@@ -44,6 +42,7 @@ export default function Home() {
             />
           </TouchableOpacity>
           <Text style={{ fontSize: 25, color: "#777373", fontWeight: 700 }}>
+            Hi, {name}
             Hi, {name}
           </Text>
         </View>
@@ -102,9 +101,6 @@ export default function Home() {
                 title="Postpartum Wellness"
               />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate(WaterCheck)}
-            >
             <ForYouComponent
               imageSource={require("../../assets/images/water.png")}
               color="#E8F7FF"
@@ -122,6 +118,10 @@ export default function Home() {
               color="#FFF3C8"
               title="Find a Gynecologist"
             />
+
+            <TouchableOpacity onPress={handleLogout}>
+              <Text style={styles.modalText}>Log Out</Text>
+            </TouchableOpacity>
 
             <TouchableOpacity onPress={handleLogout}>
               <Text style={styles.modalText}>Log Out</Text>
