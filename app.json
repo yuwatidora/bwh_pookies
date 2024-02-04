@@ -1,5 +1,3 @@
-
-
 {
   "expo": {
     "name": "my-app",
@@ -13,9 +11,12 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yuwatidora.my-app"
     },
     "android": {
       "adaptiveIcon": {
