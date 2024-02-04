@@ -65,7 +65,8 @@ export default function Login({navigation}) {
             marginTop: 10,
             fontWeight: "600",
             color: Colors.fontColor,
-            fontSize: 16
+            fontSize: 16,
+            color: "orange"
           }}> Sign Up</Text>
                     </TouchableOpacity>
                 </View>
