@@ -4,11 +4,10 @@
 // import { SafeAreaView } from 'react-native-safe-area-context';
 // import { useNavigation } from '@react-navigation/native';
 // import SympMoodTracker from '../Components/SympMoodTracker/SympMoodTracker';
-
-
 // export default function Symptoms() {
 //     const navigation = useNavigation();
 //     return (
 //         <SympMoodTracker/>
 //     )
 // }
+"use strict";
