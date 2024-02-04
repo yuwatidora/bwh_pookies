@@ -7,7 +7,7 @@ After mothers go through labor, a lot of the time the attention for care goes en
 [desc of features]
 
 ## How we built it 🔨
-We used react Native to create a mobile 
+We used react Native, firebase and firestore database to create a mobile 
 
 ## Challenges we ran into 🛑
 Some challenges we ran into were figuring out how we can incoporate firebase into our app, along with figuring out how to route to different pages through react Native.
