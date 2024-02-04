@@ -75,9 +75,6 @@ export default function Home() {
             </View>
           </View>
         </Modal>
-        <TouchableOpacity onPress={handleLogout}>
-                <Text style={styles.LogOutText}>Log Out</Text>
-    </TouchableOpacity>
       <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
 
       <View style={styles.center_wrapper}>
@@ -196,11 +193,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "pink",
   },
-  modalCOntent: {
-    backgroundColor: "black",
+  modalContent: {
+    width: "50%",
     padding: 20,
     borderRadius: 10,
     elevation: 5,
+    marginRight:30,
+    alignContent:"center"
   },
   modalText: {
     width: "100%",
