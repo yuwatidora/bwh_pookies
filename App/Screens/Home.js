@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ForYouComponent from '../Components/forYouComponent'
 import { useNavigation } from "@react-navigation/native";
@@ -14,6 +14,7 @@ export default function Home() {
     await signOut(auth);
   };
   return (
+    <ScrollView>
     <SafeAreaView>
   
       <View style={styles.header}>
@@ -23,17 +24,18 @@ export default function Home() {
             style={styles.buttonImageIconStyle}
           />
         </TouchableOpacity>
-        <Text style={{fontSize: 25, color: "#777373", fontWeight:700}}>Hi, Person</Text>
+        {/* <Text style={{fontSize: 25, color: "#777373", fontWeight:700}}>Hi, Person</Text> */}
+        <Image style={styles.logo} source={require('../../assets/images/motherbaby.png')}/>
       </View>
 
-      <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
+      <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 35, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Hi, Person</Text>
       <View style={styles.upcoming}>
         <View style = {styles.calendarView}>
-          <Text>Calendar here</Text>
+          <Image style = {styles.image_card}source={require('../../assets/images/homecard.png')}/>
         </View>
       </View>
 
-      <Text style={{fontSize: 28, paddingLeft: 30, color: "#777373", fontWeight:600}}>For you</Text>
+      <Text style={{fontSize: 28, paddingLeft: 35, color: "#777373", fontWeight:600}}>For you</Text>
       <View style={styles.center_wrapper}>
         <View style={styles.foryou_container}>
           <ForYouComponent imageSource={require("../../assets/images/wellness.png")} color="#E0FFDD" title="Postpartum Wellness"/>
@@ -53,12 +55,7 @@ export default function Home() {
             >
                 Home Page: {user.email}
             </Text>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Symptoms')}>
-                <Text>
-                    Symptom Check
-                </Text>
-            </TouchableOpacity>
+            
             <TouchableOpacity
                 onPress={handleLogout}
                 className="p-1 bg-red-400 rounded-lg"
@@ -76,6 +73,7 @@ export default function Home() {
                 </Text>
             </TouchableOpacity>
     </SafeAreaView>
+    </ScrollView>
   )
 }
 
@@ -83,15 +81,20 @@ const styles =StyleSheet.create({
   header:{
     flexDirection: 'row',
     justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 60,
-    paddingHorizontal: 26,
+    //alignItems: "center",
+    marginTop: 10,
+    paddingHorizontal: 27,
 
     //borderWidth: "1px"
   },
+  logo:{
+    width:65,
+    height: 65,
+    overflow: "visible",
+  },
   upcoming:{
     alignItems: "center",
-    height: "16%",
+    height: "20%",
     // paddingVertical: 10,
 
     //borderWidth: "1px",
@@ -99,11 +102,22 @@ const styles =StyleSheet.create({
   calendarView:{
     width: "88%",
     height: "80%",
-    backgroundColor: "#FFC9AA",
-    borderRadius: 20,
+    
     marginTop: 10,
 
     alignItems: "center",
+
+  },
+  image_card:{
+    width: "98%",
+    height: 150,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOpacity:10,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
 
   },
   foryou_container:{
@@ -120,6 +134,7 @@ const styles =StyleSheet.create({
   center_wrapper:{
     alignItems: "center",
   },
+
 })
 
   

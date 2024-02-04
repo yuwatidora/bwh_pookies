@@ -23,7 +23,7 @@ const styles =StyleSheet.create({
   card:{
     backgroundColor: "#FFDDDD",
     width: 150,
-    height: "40%",
+    height: 150,
     margin: 10,
     alignItems: "center",
     justifyContent: "center",
