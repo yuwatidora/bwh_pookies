@@ -9,8 +9,8 @@ import { ScrollView } from "react-native";
 
 export default function Login({ navigation }) {
   return (
-    <ScrollView>
-    <ScrollView>
+    
+    
     <ScrollView>
     <View className="flex-1 flex justify-around my-4">
   
@@ -77,11 +77,10 @@ export default function Login({ navigation }) {
                   color: "orange"
                 }}> Sign Up</Text>
               </TouchableOpacity>
-              
-              </View>
             </View>
           </View>
-          </View>
+        </View>
+    </View>
     </ScrollView>
   );
 }
