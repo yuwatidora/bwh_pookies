@@ -1,7 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
+import React, { useState, useRef, useEffect } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Animated,
+  Dimensions,
+} from "react-native";
+import Home from "../Screens/Home";
+import Profile from "../Screens/Profile";
+import { useNavigation } from "@react-navigation/core";
 
 const WaterProgress = () => {
+  const navigation = useNavigation();
   const [progress, setProgress] = useState(0);
   const translateY = useRef(new Animated.Value(0)).current;
 
@@ -31,7 +42,9 @@ const WaterProgress = () => {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.progressIndicator, { transform: [{ translateY }] }]}>
+      <Animated.View
+        style={[styles.progressIndicator, { transform: [{ translateY }] }]}
+      >
         <Text style={styles.progressText}>{progress}</Text>
       </Animated.View>
       <TouchableOpacity style={styles.button} onPress={handlePress}>
@@ -40,6 +53,12 @@ const WaterProgress = () => {
       <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
         <Text style={styles.buttonText}>Reset</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate(Home)}
+      >
+        <Text style={styles.buttonText}>Home</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -47,35 +66,35 @@ const WaterProgress = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   progressIndicator: {
-    backgroundColor: '#3498DB',
+    backgroundColor: "#3498DB",
     width: 50,
     height: 50,
     borderRadius: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   progressText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 18,
   },
   button: {
     marginTop: 20,
     padding: 10,
-    backgroundColor: '#2ECC71',
+    backgroundColor: "#2ECC71",
     borderRadius: 5,
   },
   resetButton: {
     marginTop: 10,
     padding: 10,
-    backgroundColor: '#FF6347', // Red color for reset button
+    backgroundColor: "#FF6347", // Red color for reset button
     borderRadius: 5,
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: 16,
   },
 });

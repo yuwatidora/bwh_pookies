@@ -18,6 +18,7 @@ export default function Profile() {
                 <View style={styles.botContainer}>
                 <View style={styles.CardContainer}>
                     <View style={styles.MoodContainer}>
+                    <Text style={styles.cardText}>{name}</Text>
                         <Text style={styles.cardText}>Today's Mood</Text>
                         <Text style={styles.cardItemText}>{activeMood}</Text>
                     </View>
@@ -67,4 +68,3 @@ const styles = StyleSheet.create({
         color:"#403939"
     }
 })
-
