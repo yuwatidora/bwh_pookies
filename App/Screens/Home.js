@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  Row,
   Modal,
   Dimensions,
 } from "react-native";
@@ -17,7 +16,8 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { UserContext } from "../Context/userContext";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
-import Colors from "../Shared/Colors";
+import WaterTracker from "./WaterTracker";
+import WaterCheck from "./WaterCheck";
 
 export default function Home() {
   const { name } = useContext(UserContext);
@@ -99,11 +99,16 @@ export default function Home() {
                 title="Postpartum Wellness"
               />
             </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(WaterCheck)}
+            >
             <ForYouComponent
               imageSource={require("../../assets/images/water.png")}
               color="#E8F7FF"
               title="Water Tracker"
             />
+            </TouchableOpacity>
+
             <ForYouComponent
               imageSource={require("../../assets/images/calendar-icon.png")}
               color="#FFDDDD"
