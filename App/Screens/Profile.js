@@ -1,12 +1,32 @@
 import { View, Image, Text, StyleSheet, Dimensions, TouchableOpacity, SafeAreaView, ImageBackground } from "react-native";
 import React, { useContext, useState, useEffect } from "react";
+
+import { SympContext } from "../Context/sympContext";
+import { UserContext } from "../Context/userContext";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 import ProfileStatusCard from "../Components/profileStatusCard";
 import ProfileBox from "../Components/ProfileBox";
 import { SympContext } from "../Context/sympContext"
 
 
 
+
 export default function Profile() {
+
+  const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } =
+    useContext(SympContext);
+  const { name } = useContext(UserContext);
+
+  return (
+    <View>
+        <SafeAreaView>
+        <Text>{name}</Text>  
+        </SafeAreaView>
+    </View>
+  );
+}
+
   const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
 
     return (
@@ -60,3 +80,4 @@ const styles = StyleSheet.create({
         marginVertical:15
     }
 })
+

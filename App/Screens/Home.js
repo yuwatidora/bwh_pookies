@@ -7,7 +7,7 @@ import {
   ScrollView,
   Row,
   Modal,
-  Dimensions
+  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ForYouComponent from "../Components/forYouComponent";
@@ -19,7 +19,7 @@ import { UserContext } from "../Context/userContext";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
 
 export default function Home() {
-  const { user } = useContext(UserContext);
+  const { name } = useContext(UserContext);
   const [isVisible, setVisible] = useState(false);
   const navigation = useNavigation();
 
@@ -41,20 +41,19 @@ export default function Home() {
     setVisible(!isVisible);
   };
   return (
-    <SafeAreaView style={{flexGrow: 1}}>
-    
-    <ScrollView style={styles.scroller}>
-
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.menu} onPress={toggleModal}>
-            <Image source={require("../../assets/icons/menu.png")} style={styles.buttonImageIconStyle}/>
-        </TouchableOpacity>
-        {/* <Text style={{fontSize: 25, color: "#777373", fontWeight:700}}>Hi, Person</Text> */}
-        <Image style={styles.logo} source={require('../../assets/images/motherbaby.png')}/>
-      </View>
-
-
-      <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 35, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Hi, Person</Text>
+    <SafeAreaView style={{ flexGrow: 1 }}>
+      <ScrollView style={styles.scroller}>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.menu} onPress={toggleModal}>
+            <Image
+              source={require("../../assets/icons/menu.png")}
+              style={styles.buttonImageIconStyle}
+            />
+          </TouchableOpacity>
+          <Text style={{ fontSize: 25, color: "#777373", fontWeight: 700 }}>
+            Hi, {name}
+          </Text>
+        </View>
 
       <Modal
           animationType="slide"
@@ -82,14 +81,15 @@ export default function Home() {
 
       <View style={styles.center_wrapper}>
           <View style={styles.foryou_container}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(SympMoodTracker)}>
-          <ForYouComponent
-              imageSource={require("../../assets/images/wellness.png")}
-              color="#E0FFDD"
-              title="Postpartum Wellness"
-            />   
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(SympMoodTracker)}
+            >
+              <ForYouComponent
+                imageSource={require("../../assets/images/wellness.png")}
+                color="#E0FFDD"
+                title="Postpartum Wellness"
+              />
+            </TouchableOpacity>
             <ForYouComponent
               imageSource={require("../../assets/images/water.png")}
               color="#E8F7FF"
@@ -105,6 +105,10 @@ export default function Home() {
               color="#FFF3C8"
               title="Find a Gynecologist"
             />
+
+            <TouchableOpacity onPress={handleLogout}>
+              <Text style={styles.modalText}>Log Out</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
