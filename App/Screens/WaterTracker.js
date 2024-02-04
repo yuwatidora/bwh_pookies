@@ -3,7 +3,7 @@ import {Text, View, StyleSheet,Button, onPressLearnMore} from 'react-native';
 import WaterProgress from '../Components/WaterProgress';
 
 
-export default function WaterTracker({navigation}) {
+export default function Water({navigation}) {
   return (
     <View style = {styles.container} >
       <Button style = {styles.checkInButton}
