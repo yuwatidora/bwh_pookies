@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ForYouComponent from '../Components/forYouComponent'
-
+import { useNavigation } from "@react-navigation/native";
 import React, { useContext } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
@@ -42,7 +42,39 @@ export default function Home() {
           <ForYouComponent imageSource={require("../../assets/images/magglass.png")}color="#FFF3C8" title="Find a gynecologist"/>
         </View>
       </View>
-    
+                  <Text
+                style={{
+                    textAlign: "center",
+                    marginTop: 20,
+                    fontWeight: "600",
+                    color: "grey",
+                    fontSize: 16,
+                }}
+            >
+                Home Page: {user.email}
+            </Text>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Symptoms')}>
+                <Text>
+                    Symptom Check
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={handleLogout}
+                className="p-1 bg-red-400 rounded-lg"
+            >
+                <Text
+                    style={{
+                        textAlign: "center",
+                        marginTop: 20,
+                        fontWeight: "600",
+                        color: "grey",
+                        fontSize: 16,
+                    }}
+                >
+                    Logout
+                </Text>
+            </TouchableOpacity>
     </SafeAreaView>
   )
 }
@@ -90,34 +122,4 @@ const styles =StyleSheet.create({
   },
 })
 
-    <SafeAreaView className="flex-1 flex-row justify-center items-center">
-      <Text
-        style={{
-          textAlign: "center",
-          marginTop: 20,
-          fontWeight: "600",
-          color: "grey",
-          fontSize: 16,
-        }}
-      >
-        Home Page: {user.email}
-      </Text>
-      <TouchableOpacity
-        onPress={handleLogout}
-        className="p-1 bg-red-400 rounded-lg"
-      >
-        <Text
-          style={{
-            textAlign: "center",
-            marginTop: 20,
-            fontWeight: "600",
-            color: "grey",
-            fontSize: 16,
-          }}
-        >
-          Logout
-        </Text>
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
-}
+  

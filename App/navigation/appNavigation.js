@@ -5,7 +5,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../Screens/Home";
 import Welcome from "../Screens/Welcome";
 import Login from "../Screens/Login";
-import SignUp from "../Screens/signUp";
+import SignUp from "../Screens/SignUp";
+import Symptoms from "../Screens/Symptoms";
 import useAuth from "../../hooks/useAuth";
 import { UserContext } from "../Context/userContext";
 
@@ -14,7 +15,7 @@ const Stack = createNativeStackNavigator();
 export default function AppNavigation() {
   const { user } = useContext(UserContext);
   useAuth();
-  
+
   if (user) {
     return (
       <NavigationContainer>
@@ -23,6 +24,11 @@ export default function AppNavigation() {
             name="Home"
             options={{ headerShown: false }}
             component={Home}
+          />
+          <Stack.Screen
+            name="Symptoms"
+            options={{ headerShown: false }}
+            component={Symptoms}
           />
         </Stack.Navigator>
       </NavigationContainer>
