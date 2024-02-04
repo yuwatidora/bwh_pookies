@@ -14,6 +14,7 @@ import Appointment from "../Screens/Appointment";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
 import WaterTracker from "../Screens/WaterTracker";
 import WaterCheck from "../Screens/WaterCheck";
+import Doctors from "../Screens/Doctors";
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +68,11 @@ export default function AppNavigation() {
             name="Homescreen"
             options={{ headerShown: false }}
             component={Home}
+          />
+          <Stack.Screen
+            name="Doctors"
+            options={{ headerShown: false }}
+            component={Doctors}
           />
         </Stack.Navigator>
       </NavigationContainer>
