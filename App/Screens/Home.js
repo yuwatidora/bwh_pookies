@@ -41,21 +41,26 @@ export default function Home() {
     setVisible(!isVisible);
   };
   return (
-    <SafeAreaView style={{ flexGrow: 1 }}>
-      <ScrollView style={styles.scroller}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.menu} onPress={toggleModal}>
-            <Image
-              source={require("../../assets/icons/menu.png")}
-              style={styles.buttonImageIconStyle}
-            />
-          </TouchableOpacity>
-          <Text style={{ fontSize: 25, color: "#777373", fontWeight: 700 }}>
-            Hi, Person
-          </Text>
-        </View>
+    <SafeAreaView style={{flexGrow: 1}}>
+    
+    <ScrollView style={styles.scroller}>
 
-        <Modal animationType="slide" transparent={true} visible={isVisible}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.menu} onPress={toggleModal}>
+            <Image source={require("../../assets/icons/menu.png")} style={styles.buttonImageIconStyle}/>
+        </TouchableOpacity>
+        {/* <Text style={{fontSize: 25, color: "#777373", fontWeight:700}}>Hi, Person</Text> */}
+        <Image style={styles.logo} source={require('../../assets/images/motherbaby.png')}/>
+      </View>
+
+
+      <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 35, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Hi, Person</Text>
+
+      <Modal
+          animationType="slide"
+          transparent={true}
+          visible={isVisible}
+        >
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
             <TouchableOpacity onPress={handleProfile}>
@@ -70,34 +75,12 @@ export default function Home() {
             </View>
           </View>
         </Modal>
-        <Text
-          style={{
-            alignItems: "flex-start",
-            fontSize: 28,
-            paddingLeft: 30,
-            paddingTop: 10,
-            color: "#817B7B",
-            fontWeight: 600,
-          }}
-        >
-          Upcoming Schedules
-        </Text>
-        <View style={styles.upcoming}>
-          <View style={styles.calendarView}>
-            <Text>Calendar here</Text>
-          </View>
-        </View>
-        <Text
-          style={{
-            fontSize: 28,
-            paddingLeft: 30,
-            color: "#777373",
-            fontWeight: 600,
-          }}
-        >
-          For you
-        </Text>
-        <View style={styles.center_wrapper}>
+        <TouchableOpacity onPress={handleLogout}>
+                <Text style={styles.LogOutText}>Log Out</Text>
+    </TouchableOpacity>
+      <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
+
+      <View style={styles.center_wrapper}>
           <View style={styles.foryou_container}>
           <TouchableOpacity
             onPress={() => navigation.navigate(SympMoodTracker)}>
@@ -133,23 +116,46 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: "2%",
-    paddingHorizontal: "5%",
+    //alignItems: "center",
+    marginTop: 10,
+    paddingHorizontal: 27,
+
+    //borderWidth: "1px"
+  },
+  logo:{
+    width:65,
+    height: 65,
+    overflow: "visible",
   },
   upcoming: {
     alignItems: "center",
-    height: "16%",
+
+    height: "20%",
+    // paddingVertical: 10,
+
+    //borderWidth: "1px",
+
   },
   calendarView: {
     width: "88%",
     height: "80%",
-    backgroundColor: "#FFC9AA",
-    borderRadius: 20,
+    
     marginTop: 10,
     alignItems: "center",
   },
-  foryou_container: {
+  image_card:{
+    width: "98%",
+    height: 150,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOpacity:10,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+
+  },
+  foryou_container:{
     width: "88%",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -159,6 +165,7 @@ const styles = StyleSheet.create({
   center_wrapper: {
     alignItems: "center",
   },
+
   logOut: {
     textAlign: "center",
     marginTop: 10,
