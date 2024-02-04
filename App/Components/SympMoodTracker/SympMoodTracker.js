@@ -1,5 +1,4 @@
 import { React, useState, useEffect, axios, useContext } from "react";
-import { React, useState, useEffect, axios, useContext } from "react";
 import * as WebBrowser from "expo-web-browser";
 import { Button, Dimensions, Text, TouchableOpacity, StatusBar, View, ScrollView, SafeAreaView, FlatList, StyleSheet } from "react-native";
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
@@ -8,17 +7,15 @@ import moodsAndSymptoms from '../../../assets/data/moodSympData.json';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { SympContext } from "../../Context/sympContext"
+import { SympContext } from "../../Context/sympContext"
 
 
-const SympMoodTracker = ({navigation}) => {
-    const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
 const SympMoodTracker = ({navigation}) => {
     const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
     const [mood, setMoodStatus] = useState([]);
     const [symptom, setSymptomsStatus] = useState([]);
 
     useEffect(() => {
-        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name }));
         const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name }));
         const symptoms = moodsAndSymptoms[0].symptoms.map(item => ({ key: item.id, value: item.name}));
 
@@ -53,7 +50,6 @@ const SympMoodTracker = ({navigation}) => {
                             option={mood}
                             search={false}
                             setSelected={(item) => setSelectedMood(item)}
-                            try= {() => console.log(item)}
                             try= {() => console.log(item)}
                             data={mood}
                             label="Mood"
@@ -96,7 +92,6 @@ const SympMoodTracker = ({navigation}) => {
                     </View>
                 </ScrollView>
             </ScrollView>
-            <TouchableOpacity  onPress={() => navigation.navigate("Profile")} style={styles.applyButton}>
             <TouchableOpacity  onPress={() => navigation.navigate("Profile")} style={styles.applyButton}>
                 <Text style={styles.applyButtonText}>Apply</Text>
             </TouchableOpacity>
