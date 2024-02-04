@@ -72,24 +72,62 @@ export default function AppNavigation() {
       </NavigationContainer>
     );
   }
+  const { user } = useContext(UserContext);
+  useAuth();
+  
+  if (user) {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            options={{ headerShown: false }}
+            component={Home}
+          />
+          <Stack.Screen
+            name="SympMoodTracker"
+            options={{ headerShown: false }}
+            component={SympMoodTracker}
+          />
+          <Stack.Screen
+            name="Appointment"
+            options={{ headerShown: false }}
+            component={Appointment}
+          />
+          <Stack.Screen
+            name="Profile"
+            options={{ headerShown: false }}
+            component={Profile}
+          />
+          <Stack.Screen
+            name="ProfileStatus"
+            options={{ headerShown: false }}
+            component={ProfileStatusCard}
+          />
+
+          <Stack.Screen
+            name="WaterCheck"
+            options={{ headerShown: false }}
+            component={WaterCheck}
+          />
+
+          <Stack.Screen
+            name="WaterTracker"
+            options={{ headerShown: false }}
+            component={WaterTracker}
+          />
+
+          <Stack.Screen
+            name="Homescreen"
+            options={{ headerShown: false }}
+            component={Home}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen
-          name="Welcome"
-          options={{ headerShown: false }}
-          component={Welcome}
-        />
-        <Stack.Screen
-          name="Login"
-          options={{ headerShown: false }}
-          component={Login}
-        />
-        <Stack.Screen
-          name="SignUp"
-          options={{ headerShown: false }}
-          component={SignUp}
-        />
       <Stack.Navigator initialRouteName="Welcome">
         <Stack.Screen
           name="Welcome"
@@ -109,6 +147,5 @@ export default function AppNavigation() {
       </Stack.Navigator>
     
     </NavigationContainer>
-  );
   );
 }
