@@ -140,8 +140,7 @@ const styles = StyleSheet.create({
   calendarView: {
     width: "88%",
     height: "80%",
-    backgroundColor: "#FFC9AA",
-    borderRadius: 20,
+    
     marginTop: 10,
     alignItems: "center",
   },
