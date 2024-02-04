@@ -187,11 +187,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "pink",
   },
-  modalCOntent: {
-    backgroundColor: "black",
+  modalContent: {
+    width: "50%",
     padding: 20,
     borderRadius: 10,
     elevation: 5,
+    marginRight:30,
+    alignContent:"center"
   },
   modalText: {
     width: "100%",
