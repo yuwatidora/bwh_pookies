@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Row , Moda
 import { SafeAreaView } from 'react-native-safe-area-context'
 import ForYouComponent from '../Components/forYouComponent'
 import { useNavigation } from "@react-navigation/native";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { UserContext } from "../Context/userContext";
@@ -12,8 +12,10 @@ export default function Home() {
   const { user } = useContext(UserContext);
   const [isVisible, setVisible] = useState(false);
   const navigation = useNavigation();
+
   const handleLogout = async () => {
-    await signOut(auth);
+        await signOut(auth);
+
   };
 
   const toggleModal = () => {
@@ -49,13 +51,15 @@ export default function Home() {
             </View>
           </View>
         </Modal>
+        <TouchableOpacity onPress={handleLogout}>
+                <Text style={styles.LogOutText}>Log Out</Text>
+    </TouchableOpacity>
       <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
       <View style={styles.upcoming}>
         <View style = {styles.calendarView}>
           <Text>Calendar here</Text>
         </View>
       </View>
-
       <Text style={{fontSize: 28, paddingLeft: 30, color: "#777373", fontWeight:600}}>For you</Text>
       <View style={styles.center_wrapper}>
         <View style={styles.foryou_container}>
@@ -135,6 +139,16 @@ const styles =StyleSheet.create({
     padding: 10,
     textAlign:'center',
     borderRadius: 20
+  },
+  LogOutText: {
+    textAlign:'center',
+    borderWidth: 1,
+    width: "80%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: "10%",
+    padding: 5,
+    borderRadius: 5
   }
 
 })
