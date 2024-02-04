@@ -7,7 +7,7 @@ import {
   ScrollView,
   Row,
   Modal,
-  Dimensions
+  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ForYouComponent from "../Components/forYouComponent";
@@ -19,7 +19,7 @@ import { UserContext } from "../Context/userContext";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
 
 export default function Home() {
-  const { user } = useContext(UserContext);
+  const { name } = useContext(UserContext);
   const [isVisible, setVisible] = useState(false);
   const navigation = useNavigation();
 
@@ -41,7 +41,7 @@ export default function Home() {
             />
           </TouchableOpacity>
           <Text style={{ fontSize: 25, color: "#777373", fontWeight: 700 }}>
-            Hi, Person
+            Hi, {name}
           </Text>
         </View>
 
@@ -89,14 +89,15 @@ export default function Home() {
         </Text>
         <View style={styles.center_wrapper}>
           <View style={styles.foryou_container}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(SympMoodTracker)}>
-          <ForYouComponent
-              imageSource={require("../../assets/images/wellness.png")}
-              color="#E0FFDD"
-              title="Postpartum Wellness"
-            />   
-          </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(SympMoodTracker)}
+            >
+              <ForYouComponent
+                imageSource={require("../../assets/images/wellness.png")}
+                color="#E0FFDD"
+                title="Postpartum Wellness"
+              />
+            </TouchableOpacity>
             <ForYouComponent
               imageSource={require("../../assets/images/water.png")}
               color="#E8F7FF"
@@ -112,6 +113,10 @@ export default function Home() {
               color="#FFF3C8"
               title="Find a Gynecologist"
             />
+
+            <TouchableOpacity onPress={handleLogout}>
+              <Text style={styles.modalText}>Log Out</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
