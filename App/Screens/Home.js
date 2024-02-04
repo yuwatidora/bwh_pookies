@@ -116,7 +116,7 @@ export default function Home() {
                 title="Postpartum Wellness"
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate(WaterCheck)}>
+            <TouchableOpacity onPress={() => navigation.navigate(WaterTracker)}>
               <ForYouComponent
                 imageSource={require("../../assets/images/water.png")}
                 color="#E8F7FF"

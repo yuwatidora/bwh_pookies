@@ -5,6 +5,11 @@ const CheckInCard = ({ question, initialValue, onChangeText }) => {
   return (
     <View style={styles.card}>
       <Text style={styles.cardText}>{question}</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Enter your text here"
+        
+      />
     </View>
   );
 };
