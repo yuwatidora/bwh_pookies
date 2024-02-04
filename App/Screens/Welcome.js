@@ -11,7 +11,6 @@ export default function Login({ navigation }) {
   return (
     <ScrollView>
     <View className="flex-1 flex justify-around my-4">
-  
         <Image source={motherbaby} style={styles.appImage} />
         <View
           style={{
@@ -115,7 +114,7 @@ export default function Login({ navigation }) {
             </View>
           </View>
           </View>
-    </View>
+            </View>
     </ScrollView>
   );
 }
