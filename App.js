@@ -6,11 +6,7 @@ import AppNavigation from "./App/navigation/appNavigation";
 import UserProvider from "./App/Context/userContext";
 
 export default function App() {
-  return (
-    <UserProvider>
-      <AppNavigation />
-    </UserProvider>
-  );
+  return <AppNavigation/>;
 }
 
 const styles = StyleSheet.create({

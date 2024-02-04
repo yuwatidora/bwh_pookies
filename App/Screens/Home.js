@@ -50,3 +50,46 @@ export default function Home() {
         </SafeAreaView>
     );
 }
+
+const styles =StyleSheet.create({
+  header:{
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 60,
+    paddingHorizontal: 26,
+
+    //borderWidth: "1px"
+  },
+  upcoming:{
+    alignItems: "center",
+    height: "16%",
+    // paddingVertical: 10,
+
+    //borderWidth: "1px",
+  },
+  calendarView:{
+    width: "88%",
+    height: "80%",
+    backgroundColor: "#FFC9AA",
+    borderRadius: 20,
+    marginTop: 10,
+
+    alignItems: "center",
+
+  },
+  foryou_container:{
+    width: "88%",
+    
+    flexDirection: 'row',
+    flexWrap: 'wrap', 
+    justifyContent: 'space-between',
+    marginTop: 5,
+
+    //borderWidth: "1px",
+    
+  },
+  center_wrapper:{
+    alignItems: "center",
+  },
+})
