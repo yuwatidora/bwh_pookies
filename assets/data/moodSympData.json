@@ -1,0 +1,26 @@
+[{
+    "moods": [
+      {"id": 1, "name": "😊 Happy"},
+      {"id": 2, "name": "😢 Sad"},
+      {"id": 3, "name": "🎉 Excited"},
+      {"id": 4, "name": "😌 Calm"},
+      {"id": 5, "name": "😞Alone"},
+      {"id": 6, "name": "😡 Angry"},
+      {"id": 7, "name": "🤯 Burned-out"},
+      {"id": 8, "name": "💬 Disconnected"},
+      {"id": 9, "name": "🤩 Hopeful"},
+      {"id": 10, "name": "💢 Bothered"}
+    ],
+    "symptoms": [
+    {"id": 1, "name": "🥳 Everything's great!"},
+      {"id": 2, "name": "🤕 Headache"},
+      {"id": 3, "name": "🤒 Fever"},
+      {"id": 4, "name": "🤧 Cough"},
+      {"id": 5, "name": "😴 Fatigue"},
+      {"id": 6, "name": "‼️ Backache"},
+      {"id": 7, "name": "🤐 Loss of Appetite"},
+      {"id": 8, "name": "🫨 Nausea"},
+      {"id": 9, "name": "💥 Muscle Pain"},
+      {"id": 10, "name": "🤮 Vomiting"}
+    ]
+  }]
