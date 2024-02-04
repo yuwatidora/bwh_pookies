@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text,  StyleSheet } from 'react-native';
 
-const CheckInCard = ({ question, initialValue, onChangeText }) => {
+const DoctorCard = ({ question, initialValue, onChangeText }) => {
   return (
     <View style={styles.card}>
       <Text style={styles.cardText}>{question}</Text>
@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CheckInCard;
+export default DoctorCard;
 
 
