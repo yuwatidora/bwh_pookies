@@ -9,20 +9,25 @@ import { useNavigation } from '@react-navigation/native';
 import { SympContext } from "../../Context/sympContext"
 
 
+
 const SympMoodTracker = ({navigation}) => {
     const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
     const [mood, setMoodStatus] = useState([]);
     const [symptom, setSymptomsStatus] = useState([]);
 
     useEffect(() => {
-        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name }));
+        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name}));
         const symptoms = moodsAndSymptoms[0].symptoms.map(item => ({ key: item.id, value: item.name}));
 
         setMoodStatus(moods);
         setSymptomsStatus(symptoms);
     }, []);
+    
+    const handleApply = () => {
+        navigation.navigate('Profile', { activeMood, activeSymptoms });
+      };
 
-
+    
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity
@@ -87,7 +92,8 @@ const SympMoodTracker = ({navigation}) => {
                     </View>
                 </ScrollView>
             </ScrollView>
-            <TouchableOpacity  onPress={() => navigation.navigate("Profile")} style={styles.applyButton}>
+
+            <TouchableOpacity onPress={handleApply} style={styles.applyButton}>
                 <Text style={styles.applyButtonText}>Apply</Text>
             </TouchableOpacity>
         </SafeAreaView>

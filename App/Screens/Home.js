@@ -27,6 +27,16 @@ export default function Home() {
     await signOut(auth);
   };
 
+  const handleProfile = () => {
+    navigation.navigate("Profile");
+    toggleModal();
+    console.log("profiel!")
+  }
+
+  const handleNavigation = (screenName) => {
+    console.log("navigatingg")
+    navigation.navigate(screenName);
+  };
   const toggleModal = () => {
     setVisible(!isVisible);
   };
@@ -48,8 +58,8 @@ export default function Home() {
         <Modal animationType="slide" transparent={true} visible={isVisible}>
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
-              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Text style={styles.modalText}>Profile</Text>
+            <TouchableOpacity onPress={handleProfile}>
+                <Text style={styles.modalText} >Profile</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => handleLogout}>
                 <Text style={styles.modalText}>Log Out</Text>
