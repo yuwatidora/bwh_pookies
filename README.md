@@ -1,9 +1,8 @@
-# Title
-[Desc of the Proj]
+# Mama Well 
+Inspired by the strong mothers around us, Mama Well is a postpartum care app that seeks to fill a crucial gap in women's health, catering to their needs during a vulnerable period. We aimed to leverage technology to make support more accessible and simplify self-care practices, ensuring that mothers receive the assistance and attention they deserve during their postpartum journey.
 
 ## Inspiration 🎂
-[Inspo]
-
+After mothers go through labor, a lot of the time the attention for care goes toward the baby from the mother, father and the doctors too. It's time to start taking care of our mothers as they navigate through this stage of motherhood!
 ## What it does 🥚
 [desc of features]
 
