@@ -11,6 +11,7 @@ export default function Login({ navigation }) {
   return (
     <ScrollView>
     <ScrollView>
+    <ScrollView>
     <View className="flex-1 flex justify-around my-4">
   
         <Image source={motherbaby} style={styles.appImage} />
@@ -25,7 +26,6 @@ export default function Login({ navigation }) {
             borderTopRightRadius: 20,
           }}
         >
-        
         
           <Text style={styles.heading}>The Postpartum Care</Text>
           <Text style={styles.heading}>You Need & Deserve.</Text>
