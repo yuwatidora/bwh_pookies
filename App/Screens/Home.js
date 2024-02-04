@@ -7,6 +7,7 @@ import {
   ScrollView,
   Modal,
   Dimensions,
+  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ForYouComponent from "../Components/forYouComponent";
@@ -20,6 +21,7 @@ import WaterTracker from "./WaterTracker";
 import WaterCheck from "./WaterCheck";
 
 export default function Home() {
+  const { name } = useContext(UserContext);
   const { name } = useContext(UserContext);
   const [isVisible, setVisible] = useState(false);
   const navigation = useNavigation();
