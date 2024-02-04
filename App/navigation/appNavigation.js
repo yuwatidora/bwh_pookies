@@ -20,6 +20,7 @@ export default function AppNavigation() {
   const { user } = useContext(UserContext);
   useAuth();
   
+  
   if (user) {
     return (
       <NavigationContainer>
@@ -89,10 +90,25 @@ export default function AppNavigation() {
           options={{ headerShown: false }}
           component={SignUp}
         />
-
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen
+          name="Welcome"
+          options={{ headerShown: false }}
+          component={Welcome}
+        />
+        <Stack.Screen
+          name="Login"
+          options={{ headerShown: false }}
+          component={Login}
+        />
+        <Stack.Screen
+          name="SignUp"
+          options={{ headerShown: false }}
+          component={SignUp}
+        />
       </Stack.Navigator>
     
     </NavigationContainer>
   );
-
+  );
 }
