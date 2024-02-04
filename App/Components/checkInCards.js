@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 
   },
   cardText: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#833A3A',
     marginTop: 10,
     marginBottom: 20,
