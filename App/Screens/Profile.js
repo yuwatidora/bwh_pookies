@@ -9,7 +9,6 @@ import { UserContext } from "../Context/userContext";
 export default function Profile() {
   const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
   const { name } = useContext(UserContext);
-
     return (
         <>
             <ImageBackground source={require("../../assets/images/profile.png")} style={styles.bgImage}>
@@ -21,11 +20,11 @@ export default function Profile() {
                     <View style={styles.MoodContainer}>
                     <Text style={styles.cardText}>{name}</Text>
                         <Text style={styles.cardText}>Today's Mood</Text>
-                    
+                        <Text style={styles.cardItemText}>{activeMood}</Text>
                     </View>
                     <View style={styles.SympContainer}>
                         <Text style={styles.cardText}>Today's Symptoms</Text>
-                        
+                        <Text style={styles.cardItemText}>{activeSymptoms}</Text>
                     </View>
             </View>
         </View>
@@ -34,7 +33,6 @@ export default function Profile() {
         </>
     )
 }
-
 const styles = StyleSheet.create({
     bgImage: {
         flex:1,
@@ -54,11 +52,19 @@ const styles = StyleSheet.create({
         padding: 10,
         marginTop:20,
         alignItems: "center",
-
     },
     cardText:{
         fontSize: 20,
         fontWeight:400,
-        marginVertical:15
+        marginVertical:15,
+        textAlign: "center",
+        color: "#403939"
+    },
+    cardItemText: {
+        gap: 2,
+        margin: "3%",
+        fontSize: 15,
+        letterSpacing:1,
+        color:"#403939"
     }
 })
