@@ -7,151 +7,153 @@ import {
   Dimensions,
   SafeAreaView,
   Button,
+  StyleSheet
 } from "react-native";
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
+import Colors from "../Shared/Colors";
+import { StatusBar } from "expo-status-bar";
+import Home from "./Home";
 
-const Appointment = ({ navigation }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
 
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setShow(false);
-    setDate(currentDate);
-  };
 
-  const showMode = (currentMode) => {
-    setShow(true);
-    setMode(currentMode);
-  };
+export default function Appointment({ navigation }) {
+  const [date, setDate] = useState(new Date());
 
-  const showDatepicker = () => {
-    showMode("date");
-  };
-
-  const showTimepicker = () => {
-    showMode("time");
+  const onChange = (e, selectedDate) => {
+    setDate(selectedDate);
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableOpacity
         onPress={() => navigation.goBack()}
-        style={{
-          padding: 15,
-          backgroundColor: "pink",
-          borderRadius: 120,
-          alignItems: "center",
-          marginTop: 20,
-          width: Dimensions.get("screen").width * 0.4,
-        }}
+        style={styles.backArrow}
       >
         <ArrowLeftIcon size="20" color="black" />
       </TouchableOpacity>
-      <SafeAreaView>
-        <Text
-          style={{
-            textAlign: "center",
-            marginTop: 20,
-            fontWeight: "600",
-            color: "grey",
-            fontSize: 16,
-          }}
-        >
+      <View>
+        <Text style={styles.heading}>
           Start Booking!
         </Text>
-
-        <View>
-          <View></View>
-          <TextInput
-            style={{
-              textAlign: "center",
-              marginTop: 20,
-              fontWeight: "600",
-              color: "grey",
-              fontSize: 16,
-            }}
-            placeholder="Reason of Appointment"
-          ></TextInput>
-          <TextInput
-            style={{
-              textAlign: "center",
-              marginTop: 20,
-              fontWeight: "600",
-              color: "grey",
-              fontSize: 16,
-            }}
-            placeholder="Name of Gynecologist"
-          ></TextInput>
+      </View>
+        <View style={styles.inPutcontainer}>
+          <TextInput style={styles.appointmentInput} placeholder="Reason of Appointment"></TextInput>
+          <TextInput style={styles.appointmentInput} placeholder="Name of Gynecologist"></TextInput>
         </View>
-        <Button onPress={showDatepicker} title="Pick a Date" />
-        <Button onPress={showTimepicker} title="Pick a Time" />
-        <Text
-          style={{
-            textAlign: "center",
-            marginTop: 20,
-            fontWeight: "600",
-            color: "grey",
-            fontSize: 16,
-          }}
-        >
-          Time Slot Selected:
-        </Text>
-        <Text
-          style={{
-            textAlign: "center",
-            marginTop: 20,
-            fontWeight: "600",
-            color: "grey",
-            fontSize: 16,
-          }}
-        >
-          {" "}
-          {date.toLocaleString()}
-        </Text>
-        {show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            onChange={onChange}
-            minimumDate={new Date(2024, 1, 4)}
-          />
-        )}
-
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={{
-            padding: 10,
-            backgroundColor: "pink",
-            borderRadius: 40,
-            alignItems: "center",
-            marginTop: 20,
-            width: Dimensions.get("screen").width * 0.34,
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              marginTop: 20,
-              marginBottom: 20,
-              fontWeight: "600",
-              color: "grey",
-              fontSize: 16,
-              alignItems: "center",
-            }}
-          >
-            Book Your Appointment
-          </Text>
+        <Text></Text>
+      <DateTimePicker
+        value={date}
+        mode={"date"}
+        is24Hour={true}
+        onChange={onChange}
+      />
+      <Text></Text>
+      <View>
+      </View>
+      <DateTimePicker
+        value={date}
+        mode={"time"}
+        is24Hour={true}
+        onChange={onChange}
+      />
+      <Text> </Text>
+      <Text>Time Slot Selected:</Text>
+      <Text> </Text>
+      <Text>{date.toLocaleString()}</Text>
+      <StatusBar style="auto" />
+      <TouchableOpacity onPress={() => navigation.navigate(Home)} style={styles.appointButtonContainer}>
+          <View style={styles.appointmentContainer}>
+            <Text style={styles.appointmentText}>
+              Book Your Appointment
+            </Text>
+          </View>
         </TouchableOpacity>
-      </SafeAreaView>
     </View>
   );
-};
+}
 
-export default Appointment;
+
+const styles = StyleSheet.create({
+  container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+      },
+  backArrow: {
+    position: "absolute",
+    color: "black",
+    top: "10%",
+    left: "10%",
+    zIndex: 1,
+  },
+  heading: {
+    textAlign: "center",
+    marginTop: "30%",
+    marginBottom: "15%",
+    fontWeight: "600",
+    color: "#403939",
+    fontSize: 30,
+    letterSpacing: 2,
+  },
+  inPutcontainer: {
+    justifyContent: "center",
+  },
+  appointmentContainer: {
+    alignContent: "center",
+  },
+  appointmentInput: {
+    textAlign: "center",
+    height: 40,
+    fontWeight: "600",
+    color: "grey",
+    fontSize: 16,
+    paddingLeft: 10,
+    marginBottom: 10,
+    borderWidth: .5,
+    borderColor: "#403939",
+    borderRadius: 20
+  },
+  gyno: {
+    textAlign: "center",
+    height: 40,
+    borderWidth: .5,
+    paddingLeft: 10,
+    marginBottom: 10,
+    borderColor: "#403939",
+    borderRadius: 20
+  },
+  timeSlot: {
+    marginVertical:"10%",
+    fontSize: 16,
+    marginBottom: 10,
+    textAlign:"center"
+  },
+  dateTime: {
+
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign:"center"
+  },
+  appointButtonContainer: {
+    alignItems: 'center', // Align button to the center
+    marginTop: 20,
+    backgroundColor:Colors.pink,
+    borderRadius: 20,
+    padding: 25,
+
+    borderRadius: 100,
+    marginTop: 20,
+    
+  },
+  appointmentText: {
+    textAlign: "center",
+    marginTop: 4,
+    marginBottom: 4,
+    fontWeight: "600",
+    color: "#403939",
+    fontSize: 16,
+  },
+});

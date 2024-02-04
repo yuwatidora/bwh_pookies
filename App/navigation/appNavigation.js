@@ -15,6 +15,7 @@ import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
 import WaterTracker from "../Screens/WaterTracker";
 import WaterCheck from "../Screens/WaterCheck";
 import Doctors from "../Screens/Doctors";
+import Questions from "../Screens/Questions";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +26,12 @@ export default function AppNavigation() {
   if (user) {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Questions">
+          <Stack.Screen
+            name="Questions"
+            options={{ headerShown: false }}
+            component={Questions}
+          />
           <Stack.Screen
             name="Home"
             options={{ headerShown: false }}
