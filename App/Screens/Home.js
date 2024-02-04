@@ -1,12 +1,22 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Row , Modal} from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import ForYouComponent from '../Components/forYouComponent'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  Row,
+  Modal,
+  Dimensions
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import ForYouComponent from "../Components/forYouComponent";
 import { useNavigation } from "@react-navigation/native";
 import React, { useContext, useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { UserContext } from "../Context/userContext";
-
+import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
 
 export default function Home() {
   const { user } = useContext(UserContext);
@@ -14,15 +24,23 @@ export default function Home() {
   const navigation = useNavigation();
 
   const handleLogout = async () => {
-        await signOut(auth);
-
+    await signOut(auth);
   };
 
+  const handleProfile = () => {
+    navigation.navigate("Profile");
+    toggleModal();
+    console.log("profiel!")
+  }
+
+  const handleNavigation = (screenName) => {
+    console.log("navigatingg")
+    navigation.navigate(screenName);
+  };
   const toggleModal = () => {
     setVisible(!isVisible);
-  }
+  };
   return (
-
     <SafeAreaView style={{flexGrow: 1}}>
     
     <ScrollView style={styles.scroller}>
@@ -45,10 +63,10 @@ export default function Home() {
         >
           <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
-            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Text style={styles.modalText}>Profile</Text>
+            <TouchableOpacity onPress={handleProfile}>
+                <Text style={styles.modalText} >Profile</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={handleLogout}>
+              <TouchableOpacity onPress={() => handleLogout}>
                 <Text style={styles.modalText}>Log Out</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={toggleModal}>
@@ -62,31 +80,41 @@ export default function Home() {
     </TouchableOpacity>
       <Text style={{alignItems: "flex-start", fontSize: 28, paddingLeft: 30, paddingTop: 10, color: "#817B7B", fontWeight:600}}>Upcoming Schedules</Text>
 
-      <View style={styles.upcoming}>
-        <View style = {styles.calendarView}>
-          <Image style = {styles.image_card}source={require('../../assets/images/homecard.png')}/>
-        </View>
-      </View>
-
-      <Text style={{fontSize: 28, paddingLeft: 30, color: "#777373", fontWeight:600}}>For you</Text>
-
       <View style={styles.center_wrapper}>
-        <View style={styles.foryou_container}>
-          <ForYouComponent imageSource={require("../../assets/images/wellness.png")} color="#E0FFDD" title="Postpartum Wellness"/>
-          <ForYouComponent imageSource={require("../../assets/images/water.png")} color="#E8F7FF" title="Water Tracker"/>
-          <ForYouComponent imageSource={require("../../assets/images/calendar-icon.png")}color="#FFDDDD" title="Schedule Appointment"/>
-          <ForYouComponent imageSource={require("../../assets/images/magglass.png")}color="#FFF3C8" title="Find a Gynecologist"/>
+          <View style={styles.foryou_container}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(SympMoodTracker)}>
+          <ForYouComponent
+              imageSource={require("../../assets/images/wellness.png")}
+              color="#E0FFDD"
+              title="Postpartum Wellness"
+            />   
+          </TouchableOpacity>
+            <ForYouComponent
+              imageSource={require("../../assets/images/water.png")}
+              color="#E8F7FF"
+              title="Water Tracker"
+            />
+            <ForYouComponent
+              imageSource={require("../../assets/images/calendar-icon.png")}
+              color="#FFDDDD"
+              title="Schedule Appointment"
+            />
+            <ForYouComponent
+              imageSource={require("../../assets/images/magglass.png")}
+              color="#FFF3C8"
+              title="Find a Gynecologist"
+            />
+          </View>
         </View>
-      </View>
-
+      </ScrollView>
     </SafeAreaView>
-    </ScrollView>
-  )
+  );
 }
 
-const styles =StyleSheet.create({
-  header:{
-    flexDirection: 'row',
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row",
     justifyContent: "space-between",
     //alignItems: "center",
     marginTop: 10,
@@ -99,7 +127,7 @@ const styles =StyleSheet.create({
     height: 65,
     overflow: "visible",
   },
-  upcoming:{
+  upcoming: {
     alignItems: "center",
 
     height: "20%",
@@ -108,13 +136,12 @@ const styles =StyleSheet.create({
     //borderWidth: "1px",
 
   },
-  calendarView:{
+  calendarView: {
     width: "88%",
     height: "80%",
     
     marginTop: 10,
     alignItems: "center",
-
   },
   image_card:{
     width: "98%",
@@ -130,12 +157,12 @@ const styles =StyleSheet.create({
   },
   foryou_container:{
     width: "88%",
-    flexDirection: 'row',
-    flexWrap: 'wrap', 
-    justifyContent:"space-around",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
     marginTop: 5,
   },
-  center_wrapper:{
+  center_wrapper: {
     alignItems: "center",
   },
 
@@ -157,34 +184,31 @@ const styles =StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "pink"
+    backgroundColor: "pink",
   },
   modalCOntent: {
-    backgroundColor:"black",
-    padding:20,
+    backgroundColor: "black",
+    padding: 20,
     borderRadius: 10,
     elevation: 5,
   },
   modalText: {
     width: "100%",
     borderWidth: 1,
-    borderColor:"#675D5D", 
-    margin:10,
+    borderColor: "#675D5D",
+    margin: 10,
     padding: 10,
-    textAlign:'center',
-    borderRadius: 20
+    textAlign: "center",
+    borderRadius: 20,
   },
   LogOutText: {
-    textAlign:'center',
+    textAlign: "center",
     borderWidth: 1,
     width: "80%",
     justifyContent: "center",
     alignItems: "center",
     marginLeft: "10%",
     padding: 5,
-    borderRadius: 5
-  }
-
-})
-
-  
+    borderRadius: 5,
+  },
+});

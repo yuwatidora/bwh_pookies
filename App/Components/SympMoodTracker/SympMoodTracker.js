@@ -1,4 +1,4 @@
-import { React, useState, useEffect, axios } from "react";
+import { React, useState, useEffect, axios, useContext } from "react";
 import * as WebBrowser from "expo-web-browser";
 import { Button, Dimensions, Text, TouchableOpacity, StatusBar, View, ScrollView, SafeAreaView, FlatList, StyleSheet } from "react-native";
 import { MultipleSelectList } from 'react-native-dropdown-select-list';
@@ -6,24 +6,28 @@ import Colors from "../../Shared/Colors";
 import moodsAndSymptoms from '../../../assets/data/moodSympData.json';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
+import { SympContext } from "../../Context/sympContext"
 
 
-const SympMoodTracker = () => {
-    const navigation = useNavigation();
-    const [activeMood, setSelectedMood] = useState([]);
-    const [activeSymptoms, setSelectedSymptoms] = useState([]);
+
+const SympMoodTracker = ({navigation}) => {
+    const { activeMood, setSelectedMood, activeSymptoms, setSelectedSymptoms } = useContext(SympContext);
     const [mood, setMoodStatus] = useState([]);
     const [symptom, setSymptomsStatus] = useState([]);
 
     useEffect(() => {
-        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name, icon: item.icon }));
-        const symptoms = moodsAndSymptoms[0].symptoms.map(item => ({ key: item.id, value: item.name, icon: item.icon }));
+        const moods = moodsAndSymptoms[0].moods.map(item => ({ key: item.id, value: item.name}));
+        const symptoms = moodsAndSymptoms[0].symptoms.map(item => ({ key: item.id, value: item.name}));
 
         setMoodStatus(moods);
         setSymptomsStatus(symptoms);
     }, []);
+    
+    const handleApply = () => {
+        navigation.navigate('Profile', { activeMood, activeSymptoms });
+      };
 
-
+    
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity
@@ -46,6 +50,7 @@ const SympMoodTracker = () => {
                             option={mood}
                             search={false}
                             setSelected={(item) => setSelectedMood(item)}
+                            try= {() => console.log(item)}
                             data={mood}
                             label="Mood"
                             save="value"
@@ -87,7 +92,8 @@ const SympMoodTracker = () => {
                     </View>
                 </ScrollView>
             </ScrollView>
-            <TouchableOpacity style={styles.applyButton}>
+
+            <TouchableOpacity onPress={handleApply} style={styles.applyButton}>
                 <Text style={styles.applyButtonText}>Apply</Text>
             </TouchableOpacity>
         </SafeAreaView>
