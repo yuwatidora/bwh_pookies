@@ -8,7 +8,8 @@ import Login from "../Screens/Login";
 import SignUp from "../Screens/signUp";
 import useAuth from "../../hooks/useAuth";
 import { UserContext } from "../Context/userContext";
-
+import Appointment from "../Screens/Appointment";
+import Booking from "../Screens/Appointment";
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
@@ -24,6 +25,16 @@ export default function AppNavigation() {
             options={{ headerShown: false }}
             component={Home}
           />
+        <Stack.Screen
+            name="Appointment"
+            options={{ headerShown: false }}
+            component={Appointment}
+          /> 
+          <Stack.Screen
+            name="Booking"
+            options={{ headerShown: false }}
+            component={Booking}
+          />   
         </Stack.Navigator>
       </NavigationContainer>
     );

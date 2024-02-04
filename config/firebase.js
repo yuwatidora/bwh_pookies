@@ -10,6 +10,7 @@ import { getFirestore } from 'firebase/firestore'
 const firebaseConfig = {
   apiKey: "AIzaSyABLm4kaL4JQv6t9LtrG-_fJXCSRBvs0OE",
   authDomain: "react-native-login-9d0ce.firebaseapp.com",
+  databaseURL: "https://react-native-login-9d0ce-default-rtdb.firebaseio.com/",
   projectId: "react-native-login-9d0ce",
   storageBucket: "react-native-login-9d0ce.appspot.com",
   messagingSenderId: "310634754543",
