@@ -24,6 +24,7 @@ export default function Login({ navigation }) {
             borderTopRightRadius: 20,
           }}
         >
+        
           <Text style={styles.heading}>The Postpartum Care</Text>
           <Text style={styles.heading}>You Need & Deserve.</Text>
           <Text
