@@ -17,6 +17,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { UserContext } from "../Context/userContext";
 import SympMoodTracker from "../Components/SympMoodTracker/SympMoodTracker";
+import Colors from "../Shared/Colors";
 
 export default function Home() {
   const { name } = useContext(UserContext);
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "pink",
+    backgroundColor: Colors.pink,
   },
   modalContent: {
     width: "50%",
