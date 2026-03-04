@@ -115,9 +115,3 @@ If you’re setting this up locally, you may need to provide your own Firebase/C
 ## Contributing
 
 PRs and suggestions are welcome. If you plan to add a feature, consider opening an issue first describing what you want to change and why.
-
----
-
-## License
-
-No license specified yet. If you want this to be open source, consider adding a `LICENSE` file (MIT or Apache-2.0 are common choices).
